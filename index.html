@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="&lt;highlight-editor> Web Component using FONT for syntax highlighting">
-    <title>Web Component</title>
+    <title>&lt;highlight-editor> Web Component</title>
     <script src="element.js"></script>
     <script src="//file-size.github.io/element.js" type="module"></script>
     <style>
@@ -33,6 +33,7 @@
         Right Output window is a live preview of the code. Updated on every keypress.
     </p>
     <highlight-editor>
+        <!-- template creates inert content, <style> and <script> are extracted, then only HTML remains -->
         <template>
             <div class="container">
                 <p>tiny HTML & CSS sandbox =)</p>
