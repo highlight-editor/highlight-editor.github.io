@@ -122,7 +122,7 @@ button:hover{
         id: "Monaspace",
         innerHTML: "@font-face{" +
           "font-family:'Monaspace';" +
-          "src:url('MonaspaceKrypton-SyntaxHighlighter-Regular.woff2') format('woff2');" +
+          "src:url('MonaspaceSyntaxHighlighter.woff2') format('woff2');" +
           "font-weight:normal;font-style:normal}"
       }));
     } // end constructor
