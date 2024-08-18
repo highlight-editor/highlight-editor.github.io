@@ -18,21 +18,21 @@
         ref, // ref = "html", "css", "js"
         placeholder = ""
       ) => {
-        return createElement("DIV", { id: ref + "Container" }, [
+        return createElement("div", { id: ref + "container" }, [
           // create this.html, this.css, this.js references
-          this[ref] = createElement("TEXTAREA", {
+          this[ref] = createElement("textarea", {
             placeholder,
             // listeners on <textarea>
-            oninput: () => this.setIFrame(),
-            oldonkeydown: (evt) => {
-              if (evt.key == "Tab") {
-                evt.preventDefault();
-                const TAB_SIZE = 2;
-                console.log("Tab pressed", this[ref]);
-                // execCommand is deprecated, but still works just fine!
-                document.execCommand("insertText", false, " ".repeat(TAB_SIZE));
-              }
-            },
+            oninput: () => this.iframe(), // update iframe on input
+            // oldonkeydown: (evt) => {
+            //   if (evt.key == "Tab") {
+            //     evt.preventDefault();
+            //     const TAB_SIZE = 2;
+            //     console.log("Tab pressed", this[ref]);
+            //     // execCommand is deprecated, but still works just fine!
+            //     document.execCommand("insertText", false, " ".repeat(TAB_SIZE));
+            //   }
+            // },
             onkeydown: (evt) => {
               if (evt.key == "Tab") {
                 evt.preventDefault();
@@ -53,9 +53,7 @@
       } // end createTEXTAREA()
 
       // ====================================================================== MAIN - create shadowDOM
-      Object.assign(super(), {
-        _internals: this.attachInternals()
-      })
+      super()
         .attachShadow({
           mode: "open"
         })
@@ -78,7 +76,7 @@
 #output{
   display:flex;background:white;flex-grow:1;overflow:auto
 }
-#htmlContainer, #cssContainer, #jsContainer{
+#htmlcontainer, #csscontainer, #jscontainer{
   display:flex;height:calc(100%/3);position:relative;padding:8px;resize:vertical;overflow:auto
 }
 textarea{
@@ -101,13 +99,13 @@ button:hover{
 }`,
           }),// end <style> in shadowDOM
           // -------------------------------------------------------------------- create more shadowDOM
-          this.container = createElement("DIV", { id: "container" }, [
-            this.editor = createElement("DIV", { id: "editor" }, [
+          this.container = createElement("div", { id: "container" }, [
+            this.editor = createElement("div", { id: "editor" }, [
               createTEXTAREA(/* ref: */"html", /* placeholder: */"Enter HTML here..."),
               createTEXTAREA("css", "Enter CSS here..."),
               createTEXTAREA("js", "Enter JavaScript here..."),
             ]),
-            createElement("DIV", { id: "output" }, [
+            createElement("div", { id: "output" }, [
               this.iframe = createElement("iframe")
             ])
           ])
@@ -141,7 +139,7 @@ button:hover{
       // ---------------------------------------------------------------------- wait for innerHTML to be parsed
       setTimeout(() => {
         this.template2textareas(); // parse <template> HTML, CSS or JS content to <textarea>
-        this.setIFrame();
+        this.iframe();
       });
     }// connectedCallback
     // ======================================================================== disconnectedCallback 
@@ -188,7 +186,7 @@ button:hover{
     } // template2textareas()
 
     // ======================================================================== output to <IFRAME>
-    setIFrame(
+    iframe(
       doc = this.iframe.contentDocument
     ) {
       doc.open();
