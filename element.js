@@ -23,7 +23,7 @@
           this[ref] = createElement("textarea", {
             placeholder,
             // listeners on <textarea>
-            oninput: () => this.iframe(), // update iframe on input
+            oninput: () => this.setiframe(), // update iframe on input
             // oldonkeydown: (evt) => {
             //   if (evt.key == "Tab") {
             //     evt.preventDefault();
@@ -139,7 +139,7 @@ button:hover{
       // ---------------------------------------------------------------------- wait for innerHTML to be parsed
       setTimeout(() => {
         this.template2textareas(); // parse <template> HTML, CSS or JS content to <textarea>
-        this.iframe();
+        this.setiframe();
       });
     }// connectedCallback
     // ======================================================================== disconnectedCallback 
@@ -186,7 +186,7 @@ button:hover{
     } // template2textareas()
 
     // ======================================================================== output to <IFRAME>
-    iframe(
+    setiframe(
       doc = this.iframe.contentDocument
     ) {
       doc.open();
