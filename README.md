@@ -1,2 +1,2 @@
-# highlight-editor.github.io
-&lt;highlight-editor> Web Component
+# fbsh-box.github.io
+&lt;fbsh-box> Font with Built-In Syntax Highlighting Web Component

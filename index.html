@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="&lt;highlight-editor> Web Component using FONT for syntax highlighting">
+    <title>Web Component</title>
+    <script src="element.js"></script>
+    <script src="//file-size.github.io/element.js" type="module"></script>
+    <style>
+        body {
+            font: 18px arial;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>&lt;highlight-editor> Web Component</h1>
+    <p>
+        <a href="https://blog.glyphdrawing.club/font-with-built-in-syntax-highlighting/">Original Blog: Syntax
+            Highlighting with FONT</a>
+    </p>
+    <p>
+        <a href="https://github.com/highlight-editor/highlight-editor.github.io">UNLicensed code on GitHub</a>
+    </p>
+    <highlight-editor>
+        <template>
+            <div class="container">
+                <p>tiny HTML & CSS sandbox =)</p>
+            </div>
+            <style>
+                .container {
+                    height: 100%;
+                    width: 100%;
+                    display: grid;
+                    place-content: center;
+                    background: linear-gradient(lch(40 50 290),
+                            lch(60 50 60) 50%,
+                            lch(60 55 30) 70%,
+                            lch(20 20 290) 70.2%,
+                            lch(40 30 60))
+                }
+
+                p {
+                    font-size: clamp(16px, 2vw, 32px);
+                    color: lch(10 40 290);
+                }
+            </style>
+            <script>
+                document.querySelector('p').style.background = 'yellow';
+            </script>
+        </template>
+    </highlight-editor>
+    <!-- todo  -->
+    <highlight-edit-html>
+        <template>
+            <div class="container">
+                <p>tiny HTML & CSS sandbox =)</p>
+            </div>
+        </template>
+    </highlight-edit-html>
+    <section id="filesize">
+        <h1>minified GZIP Filesize is <i>small</i></h1>
+        <file-size gz src="https://highlight-editor.github.io/element.min.js"></file-size>
+    </section>
+
+</body>
+
+</html>
