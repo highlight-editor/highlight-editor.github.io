@@ -61,47 +61,44 @@
         })
         .append(
           createElement("style", {
-            // VSCode extension "literally-html" will syntax highlight template literal strings as HTML or CSS
-            innerHTML: /*css*/`
-            :host{
-              display:flex;width:100%;height:100%;container-type:inline-size;
-            }
-            #container{
-              display:flex;width:100%;height:100%;
-            }
-            #editor{
-              display:flex;flex-direction:column;width:50%;height:100%;background:#1d1d1d;resize:horizontal;overflow:auto;
-            }
-            #editor div:last-child{
-              flex-grow:1;
-            }
-            #output{
-              display:flex;background:white;flex-grow:1;overflow:auto;
-            }
-            #htmlContainer, #cssContainer, #jsContainer{
-              display:flex;height:calc(100%/3);position:relative;padding:8px;resize:vertical;overflow:auto;
-            }
-            textarea{
-              width:100%;height:100%;box-sizing:border-box;margin:0;padding:4px;background-color:black;border-radius:4px;
-              color:#f1f1f1;line-height:1.4;resize:none;overflow:auto;white-space:pre;
-              font-family:"Monaspace", monospace;font-feature-settings:"colr", "calt";
-            }
-            iframe{ 
-              border:none;flex:1;
-            }
-            button{
-              position:absolute;bottom:14px;right:14px;padding:4px 8px;border-radius:2px;cursor:pointer;background-color:#d1d1d1;color:#1d1d1d;opacity:0.6;
-            }
-            button:hover{
-              opacity:1;
-            }
-            @container (max-width:900px){
-              #container{
-                flex-direction:column;}
-              #editor{
-                width:100%;height:50%;resize:vertical;
-              }
-            }`,
+            innerHTML:
+              // VSCode extension "literally-html" will syntax highlight template literal strings as HTML or CSS
+              /*css*/`:host{
+  display:flex;width:100%;height:100%;container-type:inline-size
+}
+#container{
+  display:flex;width:100%;height:70vh
+}
+#editor{
+  display:flex;flex-direction:column;width:50%;height:100%;background:#1d1d1d;resize:horizontal;overflow:auto
+}
+#editor div:last-child{
+  flex-grow:1
+}
+#output{
+  display:flex;background:white;flex-grow:1;overflow:auto
+}
+#htmlContainer, #cssContainer, #jsContainer{
+  display:flex;height:calc(100%/3);position:relative;padding:8px;resize:vertical;overflow:auto
+}
+textarea{
+  width:100%;height:100%;box-sizing:border-box;margin:0;padding:4px;background-color:black;border-radius:4px;
+  color:#f1f1f1;line-height:1.4;resize:none;overflow:auto;white-space:pre;
+  font-family:"Monaspace", monospace;font-feature-settings:"colr", "calt"
+}
+iframe{
+  border:none;flex:1
+}
+button{
+  position:absolute;bottom:14px;right:14px;padding:4px 8px;border-radius:2px;cursor:pointer;background-color:#d1d1d1;color:#1d1d1d;opacity:0.6
+}
+button:hover{
+  opacity:1
+}
+@container (max-width:900px){
+  #container{flex-direction:column}
+  #editor{width:100%;height:50%;resize:vertical}
+}`,
           }),// end <style> in shadowDOM
           // -------------------------------------------------------------------- create more shadowDOM
           this.container = createElement("DIV", { id: "container" }, [
